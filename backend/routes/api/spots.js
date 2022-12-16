@@ -453,19 +453,19 @@ router.get('/:spotId/bookings', requireAuth, async (req, res) => {
     })
   }
 
-  if (spot.ownerId !== id){
-    let booking = await Booking.findAll({
-      where: {
-        spotId: req.params.spotId
-      },
-      attributes: ['spotId', 'startDate', 'endDate']
-    })
+  // if (spot.ownerId !== id){
+  //   let booking = await Booking.findAll({
+  //     where: {
+  //       spotId: req.params.spotId
+  //     },
+  //     attributes: ['spotId', 'startDate', 'endDate']
+  //   })
 
-    for(let i = 0; i < booking.length; i++) {
-      let currentBooking = booking[i].toJSON()
-      allBookings.push(currentBooking)
-    }
-  }
+  //   for(let i = 0; i < booking.length; i++) {
+  //     let currentBooking = booking[i].toJSON()
+  //     allBookings.push(currentBooking)
+  //   }
+  // }
 
   if (spot.ownerId === id){           //spent 30 minutes trying to fix this. wasn't broken at all.
     //console.log('owner')

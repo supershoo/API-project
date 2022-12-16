@@ -10,6 +10,7 @@ import EditSpot from "./components/editSpot/editSpot";
 import SpotDetails from "./components/SpotDetails/SpotDetails";
 import CreateReview from "./components/CreateReview/CreateReview";
 import ReviewDetails from "./components/ReviewDetails/ReviewDetails"
+import CreateBooking from "./components/CreateBooking/CreateBooking";
 
 function App() {
   const dispatch = useDispatch();
@@ -25,6 +26,9 @@ function App() {
         <Switch>
           <Route exact path = "/spots/:spotId/review/:reviewId">
             <ReviewDetails/>
+          </Route>
+          <Route exact path = "/spots/:spotId/book">
+            <CreateBooking/>
           </Route>
           <Route exact path = "/spots/:spotId/create">
             <CreateReview/>

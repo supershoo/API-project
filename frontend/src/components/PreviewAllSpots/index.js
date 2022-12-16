@@ -12,6 +12,7 @@ function PreviewAllSpots(){
   const dispatch = useDispatch();
 
   const spots = useSelector(state => state.spots)
+  console.log(spots)
 
   useEffect(() => {
     dispatch(getSpots());

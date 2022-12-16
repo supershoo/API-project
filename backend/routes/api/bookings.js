@@ -26,14 +26,6 @@ router.get('/current', requireAuth, async (req, res) => {
     let spot = await Spot.findByPk(booking.spotId, {
       attributes: ['id', 'ownerId', 'address', 'city', 'state', 'country', 'lat', 'lng', 'name', 'price']
     })
-
-    // let images = await SpotImage.findOne({
-    //   where: {
-    //     spotId: spot.id,
-    //   },
-    //   attributes: ['id', 'spotId', 'url']
-    // })
-
     let jsonSpot = spot.toJSON()
 
     const previewImage = await SpotImage.findAll({
@@ -49,20 +41,7 @@ router.get('/current', requireAuth, async (req, res) => {
     if(!previewImage.length){
       jsonSpot.previewImage = null
     }
-
-
-    //let jsonImages = images.toJSON()
-
-
-
-    // if (images){
-
-    //   jsonSpot.previewImage = images.toJSON().url
-    // }
-
-    //console.log(jsonSpot)
     booking.Spot = jsonSpot
-    //console.log(booking)
     bookingSpots.push(booking)
   }
 

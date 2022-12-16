@@ -3,6 +3,8 @@ import { useState, useEffect } from 'react'
 import { useHistory, useParams } from 'react-router-dom'
 import { destroySpot, getOneSpot } from '../../store/spots';
 import SpotReviews from '../SpotReviews/SpotReviews';
+import SpotBookings from '../SpotBookings';
+import SpotUserBooking from '../SpotUserBooking/SpotUserBooking';
 import { hasReview } from '../SpotReviews/SpotReviews'
 import './SpotDetails.css'
 
@@ -66,11 +68,14 @@ function SpotDetails() {
       <div className = "description">
       <p>{spot.description}</p>
       </div>
-      {/* <div className = "buttons">
-      {(isLoggedIn && ((!isOwner) && (!hasReview))) ? <button id="LeaveReviewButton" onClick={reroute}>Leave Review</button> : <></>}
-      </div> */}
       <div>
       <SpotReviews/>
+      </div>
+      <div>
+      {/* <SpotUserBooking/> */}
+      </div>
+      <div>
+      <SpotBookings/>
       </div>
     </div>
   )
